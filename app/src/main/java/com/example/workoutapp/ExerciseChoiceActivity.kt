@@ -3,7 +3,6 @@ package com.example.workoutapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workoutapp.databinding.ActivityExerciseChoiceBinding
@@ -17,6 +16,7 @@ class ExerciseChoiceActivity : AppCompatActivity() {
         binding=ActivityExerciseChoiceBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding?.root)
+        setSupportActionBar(binding?.ExerciseChoiceActivity)
         if(supportActionBar!=null)
         {
             getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);

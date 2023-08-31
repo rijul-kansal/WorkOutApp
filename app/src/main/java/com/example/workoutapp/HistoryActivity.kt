@@ -14,7 +14,16 @@ class HistoryActivity : AppCompatActivity() {
         binding=ActivityHistoryBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding?.root)
+        setSupportActionBar(binding?.ExerciseChoiceActivity)
+        if(supportActionBar!=null)
+        {
+            getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar()?.setDisplayShowHomeEnabled(true);
+        }
 
+        binding?.ExerciseChoiceActivity?.setNavigationOnClickListener {
+            onBackPressed()
+        }
         var database = HistorydataBase.getDatabase(this)
         GlobalScope.launch {
             database.HistoryDao().getAll().collect{

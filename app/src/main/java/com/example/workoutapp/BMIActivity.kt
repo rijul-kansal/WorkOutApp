@@ -25,7 +25,16 @@ class BMIActivity : AppCompatActivity() {
         binding = ActivityBmiactivityBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+        setSupportActionBar(binding?.ExerciseChoiceActivity)
+        if(supportActionBar!=null)
+        {
+            getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar()?.setDisplayShowHomeEnabled(true);
+        }
 
+        binding?.ExerciseChoiceActivity?.setNavigationOnClickListener {
+            onBackPressed()
+        }
         binding?.radiogroup?.setOnCheckedChangeListener { _, checkedId: Int ->
             if (checkedId == R.id.metric) {
                 makeVisibleMetricUnitsView()

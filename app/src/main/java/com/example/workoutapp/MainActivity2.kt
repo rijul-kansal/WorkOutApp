@@ -27,6 +27,7 @@ class MainActivity2 : AppCompatActivity(),TextToSpeech.OnInitListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMain2Binding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        setSupportActionBar(binding?.Activity2tb)
         setContentView(binding?.root)
         if (supportActionBar != null) {
             getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
@@ -43,26 +44,26 @@ class MainActivity2 : AppCompatActivity(),TextToSpeech.OnInitListener {
             {
                 ExerciseChest = Contants.getExerciseChest()
             }
-//            1->
-//            {
-//                ExerciseChest = Contants.getExerciseBack()
-//            }
-//            2->
-//            {
-//                ExerciseChest = Contants.getExerciseSholder()
-//            }
-//            3->
-//            {
-//                ExerciseChest = Contants.getExerciseLeg()
-//            }
-//            4->
-//            {
-//                ExerciseChest = Contants.getExerciseBiceps()
-//            }
-//            5->
-//            {
-//                ExerciseChest = Contants.getExerciseTriceps()
-//            }
+            1->
+            {
+                ExerciseChest = Contants.getExerciseBack()
+            }
+            2->
+            {
+                ExerciseChest = Contants.getExerciseSholder()
+            }
+            3->
+            {
+                ExerciseChest = Contants.getExerciseLeg()
+            }
+            4->
+            {
+                ExerciseChest = Contants.getExerciseBiceps()
+            }
+            5->
+            {
+                ExerciseChest = Contants.getExerciseTriceps()
+            }
         }
 
         tts = TextToSpeech(this, this)
@@ -73,14 +74,14 @@ class MainActivity2 : AppCompatActivity(),TextToSpeech.OnInitListener {
     private fun setUpCountDownTimer_RestView() {
         binding?.Activity2pb?.setProgress(100)
         binding?.Activity2pb?.setMax(10)
-        restime = object : CountDownTimer(1000, 1000) {
+        restime = object : CountDownTimer(10000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding?.Activity2pb?.setProgress((millisUntilFinished / 1000).toInt())
                 binding?.Activity2tv?.text = (millisUntilFinished / 1000).toString()
             }
 
             override fun onFinish() {
-                if (currpos < ExerciseChest?.size!!-1)
+                if (currpos <= ExerciseChest?.size!!-1)
                     setUpCountDownTimer_ExerciseView_cancel()
                 else
                 {
@@ -109,7 +110,7 @@ class MainActivity2 : AppCompatActivity(),TextToSpeech.OnInitListener {
     private fun setUpCountDownTimer_ExerciseView() {
         binding?.Activity2pbexercise?.setProgress(300)
         binding?.Activity2pbexercise?.setMax(30)
-        Exercisetime = object : CountDownTimer(1000, 1000) {
+        Exercisetime = object : CountDownTimer(30000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding?.Activity2pbexercise?.setProgress((millisUntilFinished / 1000).toInt())
                 binding?.Activity2tvexercise?.text = (millisUntilFinished / 1000).toString()

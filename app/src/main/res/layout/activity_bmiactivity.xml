@@ -6,7 +6,14 @@
     android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".BMIActivity">
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/ExerciseChoiceActivity"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <RadioGroup
         android:id="@+id/radiogroup"
         android:padding="8dp"
@@ -17,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/radio_btn_bg"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/ExerciseChoiceActivity">
         <RadioButton
             android:id="@+id/standard"
             android:layout_weight="1"
