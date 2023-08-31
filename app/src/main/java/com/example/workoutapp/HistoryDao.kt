@@ -10,8 +10,8 @@ import androidx.room.Query
 interface HistoryDao {
 
     @Insert
-    fun insertStudent(student: HistoryEntity)
+    fun insert(student: HistoryEntity)
 
     @Query("SELECT * FROM historyTable")
-    fun getAllStudent(): LiveData<List<HistoryEntity>>
+    fun getAll(): LiveData<List<HistoryEntity>>
 }

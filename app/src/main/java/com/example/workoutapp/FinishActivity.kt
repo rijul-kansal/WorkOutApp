@@ -25,11 +25,12 @@ class FinishActivity : AppCompatActivity() {
         pos=intent.getIntExtra("POSITION1",0)
         Toast.makeText(this,"$pos",Toast.LENGTH_LONG).show()
 
+        var database = HistorydataBase.getDatabase(this)
 
-        database = HistorydataBase.getDatabase(this)
         GlobalScope.launch {
-            database.HistoryDao().insertStudent(HistoryEntity(0, "Shubham Pandey"))
+            database.HistoryDao().insert(HistoryEntity(0, "Shubham Pandey"))
         }
+
     }
     override fun onDestroy() {
         super.onDestroy()
