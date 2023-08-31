@@ -9,7 +9,9 @@ import com.example.workoutapp.databinding.HistoryRecycleViewBinding
 class HistoryAdapter(
     private val items: ArrayList<HistoryEntity>
 ) :
+
     RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             HistoryRecycleViewBinding.inflate(
@@ -26,7 +28,7 @@ class HistoryAdapter(
         return items.size
     }
     class ViewHolder(binding: HistoryRecycleViewBinding) : RecyclerView.ViewHolder(binding.root) {
-        var eno=binding?.ExerciseNo
-        var ename=binding?.ExerciseName
+        var eno=binding.ExerciseNo
+        var ename=binding.ExerciseName
     }
 }
