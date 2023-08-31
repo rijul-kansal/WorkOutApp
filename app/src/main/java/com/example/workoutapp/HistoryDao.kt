@@ -1,11 +1,8 @@
 package com.example.workoutapp
 
 
-
-
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -13,9 +10,8 @@ import androidx.room.Query
 interface HistoryDao {
 
     @Insert
-    fun insertStudent(historyEntity: HistoryEntity)
+    fun insertStudent(student: HistoryEntity)
 
-
-    @Query("SELECT * FROM historytable")
+    @Query("SELECT * FROM historyTable")
     fun getAllStudent(): LiveData<List<HistoryEntity>>
 }

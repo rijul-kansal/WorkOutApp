@@ -33,7 +33,7 @@ abstract class HistorydataBase : RoomDatabase() {
                     INSTANCE = Room.databaseBuilder(
                         context,
                         HistorydataBase::class.java,
-                        "studentDB"
+                        "historyDB"
                     )
                         .addMigrations(migration_1_2)
                         .build()
