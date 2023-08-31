@@ -23,6 +23,7 @@ class HistoryAdapter(
         val item = items[position]
         holder.eno?.text=item.id.toString()
         holder.ename?.text=item.name
+        holder.edate.text=item.date
     }
     override fun getItemCount(): Int {
         return items.size
@@ -30,5 +31,6 @@ class HistoryAdapter(
     class ViewHolder(binding: HistoryRecycleViewBinding) : RecyclerView.ViewHolder(binding.root) {
         var eno=binding.ExerciseNo
         var ename=binding.ExerciseName
+        var edate=binding.Exercisedate
     }
 }

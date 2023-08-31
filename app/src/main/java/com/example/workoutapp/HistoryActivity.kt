@@ -2,6 +2,7 @@ package com.example.workoutapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workoutapp.databinding.ActivityHistoryBinding
 import kotlinx.coroutines.GlobalScope
@@ -26,9 +27,17 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun setup(arr: ArrayList<HistoryEntity>) {
-        var ItemAdapter = HistoryAdapter(arr)
-        binding?.recyclerView?.layoutManager = LinearLayoutManager(this)
-        binding?.recyclerView?.adapter = ItemAdapter
-        ItemAdapter.notifyDataSetChanged()
+        if(arr.size>0) {
+            var ItemAdapter = HistoryAdapter(arr)
+            binding?.recyclerView?.layoutManager = LinearLayoutManager(this)
+            binding?.recyclerView?.adapter = ItemAdapter
+            ItemAdapter.notifyDataSetChanged()
+            binding?.textView?.visibility= View.INVISIBLE
+        }
+        else
+        {
+            binding?.textView?.visibility= View.VISIBLE
+            binding?.textView?.text= "No Record Found"
+        }
     }
 }
